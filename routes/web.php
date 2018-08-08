@@ -14,6 +14,6 @@
 Route::get('/','HomeController@Index');
 
 Route::resource('brand','PhoneBrandsController');
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

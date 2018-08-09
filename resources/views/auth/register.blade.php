@@ -29,11 +29,11 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -60,6 +60,18 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                                <label for="Role" class="col-md-4 control-label">Role</label>
+    
+                                <div class="col-md-6">
+                                    <select name="role" class="form-control">
+                                        <option value="Admin">Administrator</option>
+                                        <option value="User">User</option>
+                                        <option value="Client">Client</option>
+                                    </select>
+                                </div>
+                            </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

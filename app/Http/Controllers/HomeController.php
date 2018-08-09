@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Gate;
 class HomeController extends Controller
 {
     /**
@@ -11,10 +11,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(!Gate::allows('isUser')){
+            abort(404,"Sorry,You are not User");
+        }
         return view('Home.index');
     }
 }

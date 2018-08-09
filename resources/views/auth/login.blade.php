@@ -13,16 +13,16 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
+    
     <!-- Bootstrap Core Css -->
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-
+    
     <!-- Waves Effect Css -->
     <link href="{{ asset('plugins/node-waves/waves.css')}}" rel="stylesheet" />
     
     <!-- Animation Css -->
     <link href="{{ asset('plugins/animate-css/animate.css')}}" rel="stylesheet" />
-
+    
     <!-- Custom Css -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('css/MyStyle.css')}}" rel="stylesheet">
@@ -44,9 +44,9 @@
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                                {{-- {{ $errors->has('email') ? ' has-error' : '' }} --}}
-                                {{-- {{ $errors->first('email') }} --}}
-                            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus>
+                            {{-- {{ $errors->has('email') ? ' has-error' : '' }} --}}
+                            {{-- {{ $errors->first('email') }} --}}
+                            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username"  autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -54,7 +54,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" placeholder="Password" >
                         </div>
                     </div>
                     <div class="row">
@@ -77,14 +77,15 @@
                 </form>
             </div>
         </div>
+        @include('Shared.alert')
     </div>
-
+    
     <!-- Jquery Core Js -->
     <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
     
     <!-- Bootstrap Core Js -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
-
+    
     <!-- Waves Effect Plugin Js -->
     <script src="{{ asset('plugins/node-waves/waves.js')}}"></script>
 </body>

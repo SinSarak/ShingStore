@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(!Gate::allows('isUser')){
-            abort(404,"Sorry,You are not User");
+        if(!Gate::allows('isAdmin')){
+            abort(401,"Sorry,You are not User");
         }
         return view('Home.index');
     }

@@ -7,7 +7,7 @@
                 <img src="../../images/user.png" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</div>
                 <div class="email">{{ config('app.name')}}</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -52,7 +52,7 @@
                         <span>Home</span>
                     </a>
                 </li>
-                @can('isUser')
+                @can('isAdmin')
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle @if($Fmenu && $Mainmenu === "brand"){{ "toggled" }} @endif">
                         <i class="material-icons">assignment</i>

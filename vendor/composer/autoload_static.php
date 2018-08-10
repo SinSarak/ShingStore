@@ -288,12 +288,12 @@ class ComposerStaticInit08ac0bed79a1922d0349e18d37acd491
     );
 
     public static $classMap = array (
-        'AddColumnPremissionUsers' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_155141_add_column_premission_users.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CreateDepartmentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_29_103158_create_departments_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePhoneBrandsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_31_171950_create_phone_brands_table.php',
+        'CreatePhonesTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_10_180921_create_phones_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',

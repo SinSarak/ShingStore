@@ -67,6 +67,20 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle @if($Fmenu && $Mainmenu === "phone"){{ "toggled" }} @endif">
+                        <i class="material-icons">assignment</i>
+                        <span>Phone</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="@if($Fmenu && $Submenu === "list_phone"){{ "active" }}@endif" >
+                            <a href="/phone">List</a>
+                        </li>
+                        <li class="@if($Fmenu && $Submenu === "create_phone"){{ "active" }}@endif" >
+                            <a href="/phone/create">Create</a>
+                        </li>
+                    </ul>
+                </li>
                 @endcan
                 
                 <li class="header">LABELS</li>

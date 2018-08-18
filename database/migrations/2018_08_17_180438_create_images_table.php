@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhonesTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePhonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('phones', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('current_price');
-            $table->decimal('previous_price');
-            $table->string('color_name');
-            $table->integer('spac');
+            $table->integer('phone_id');
+            $table->string('image_name');
+            $table->string('path');
             $table->boolean('active');
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreatePhonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phones');
+        Schema::dropIfExists('images');
     }
 }

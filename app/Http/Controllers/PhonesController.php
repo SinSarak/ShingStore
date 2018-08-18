@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PhoneController extends Controller
+class PhonesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,7 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,7 +27,10 @@ class PhoneController extends Controller
      */
     public function create()
     {
-        //
+        $data = array(
+            'menu' => "create_phone"
+        );
+        return view('Phone.create')->with($data);
     }
 
     /**

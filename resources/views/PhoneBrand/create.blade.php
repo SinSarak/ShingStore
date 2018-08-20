@@ -1,12 +1,5 @@
 @extends('Shared.layout',['title' => 'Create Brand'])
 @section('content')
-<style>
-    .file_preview{
-        min-width: 100px;
-        max-width: 500px;
-        border: 1px solid black;
-    }
-</style>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
         <div class="header">

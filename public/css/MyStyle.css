@@ -2,3 +2,8 @@
     color:rgba(255, 60, 0, 0.788);
     font-weight: bold;
 }
+.file_preview{
+    min-width: 100px;
+    max-width: 500px;
+    border: 1px solid black;
+}

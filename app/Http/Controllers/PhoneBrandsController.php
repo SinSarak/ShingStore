@@ -49,7 +49,7 @@ class PhoneBrandsController extends Controller
     {
         $this->validate($request,[
             "brand_name" => "required",
-            "image" => 'image|nullable|max:10000'
+            "image" => 'image|nullable|max:100000'
         ]);
 
         if($request->hasFile('image')){

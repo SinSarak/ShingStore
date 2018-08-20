@@ -42,6 +42,7 @@
     <!-- Customize JS -->
     <script src="{{ asset('js/MyJquery.js')}}"></script>
     
+    
 </head>
 <body class="theme-red">
     @include('Shared.header')

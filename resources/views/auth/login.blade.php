@@ -28,7 +28,7 @@
     <link href="{{ asset('css/MyStyle.css')}}" rel="stylesheet">
 </head>
 
-<body class="login-page">
+<body class="login-page">-x.xzvbv         
     <div class="login-box">
         <div class="logo">
             <a href="{{ url('/') }}">{{ config('app.name')}}</a>

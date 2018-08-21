@@ -294,6 +294,8 @@ class ComposerStaticInit08ac0bed79a1922d0349e18d37acd491
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePhoneTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_20_044613_create_phone_table.php',
         'CreatePhotoTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_20_045213_create_photo_table.php',
+        'CreateSample' => __DIR__ . '/../..' . '/database/migrations/2018_08_21_131133_create_sample.php',
+        'CreateSpecification' => __DIR__ . '/../..' . '/database/migrations/2018_08_21_125750_create_specification.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',

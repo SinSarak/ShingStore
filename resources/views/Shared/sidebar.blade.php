@@ -69,8 +69,8 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle @if($Fmenu && $Mainmenu === "phone"){{ "toggled" }} @endif">
-                        <i class="material-icons">assignment</i>
-                        <span>Phone</span>
+                        <i class="material-icons">stay_current_portrait</i> 
+                        <span class="icon-name">Phone</span>
                     </a>
                     <ul class="ml-menu">
                         <li class="@if($Fmenu && $Submenu === "list_phone"){{ "active" }}@endif" >
@@ -83,25 +83,7 @@
                 </li>
                 @endcan
                 
-                <li class="header">LABELS</li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <i class="material-icons col-red">donut_large</i>
-                        <span>Important</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <i class="material-icons col-amber">donut_large</i>
-                        <span>Warning</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <i class="material-icons col-light-blue">donut_large</i>
-                        <span>Information</span>
-                    </a>
-                </li>
+   
             </ul>
         </div>
         <!-- #Menu -->

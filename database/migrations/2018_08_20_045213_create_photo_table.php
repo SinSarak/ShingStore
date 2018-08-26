@@ -15,8 +15,7 @@ class CreatePhotoTable extends Migration
     {
         Schema::create('Photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('phone_id');
-
+            $table->unsignedInteger('phone_id');
             $table->string('Photo_name');
             $table->string('path');
             $table->string('url_photo');
@@ -26,8 +25,7 @@ class CreatePhotoTable extends Migration
             $table->decimal('previous_price');
             $table->integer('CreatedBy');
             $table->timestamps();
-            //$table->unique(['id', 'phone_id']);
-            $table->foreign('phone_id')->references('id')->on('phones')->onDelete('cascade');
+            $table->foreign('phone_id')->references('id')->on('Phones')->onDelete('cascade');
         });
     }
 

@@ -7,3 +7,35 @@
     max-width: 500px;
     border: 1px solid black;
 }
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.no-margin-bottom{
+    margin-bottom: 0px !important;
+}
+.no-margin-top{
+    margin-top: 0px !important;
+}
+.no-margin-left{
+    margin-left: 0px !important;
+}
+.no-margin-right{
+    margin-right: 0px !important;
+}
+
+.list-group{
+    min-height: 100px;
+    border: 1px solid #9c9a9acf;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.button-add{
+    float: right;
+}

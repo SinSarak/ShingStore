@@ -5960,7 +5960,7 @@ fieldset[disabled] .form-control {
 
 .wizard.vertical > .steps {
   float: left;
-  width: 30%; }
+  width: 15%; }
 
 .wizard.vertical > .steps > ul > li {
   float: none;
@@ -5969,7 +5969,7 @@ fieldset[disabled] .form-control {
 .wizard.vertical > .content {
   float: left;
   margin: 0 0 0.5em 0;
-  width: 70%; }
+  width: 85%; }
 
 .wizard.vertical > .actions {
   float: right;

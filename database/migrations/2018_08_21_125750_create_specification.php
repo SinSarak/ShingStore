@@ -82,5 +82,6 @@ class CreateSpecification extends Migration
     public function down()
     {
         Schema::dropIfExists('Specifications');
+        
     }
 }

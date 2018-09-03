@@ -150,49 +150,60 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="photo">
                             <section>
                                 <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
-                                                <label>Url</label>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
+                                        <label>Url</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" placeholder="Photo Url">
                                             </div>
-                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                        <input type="text" class="form-control" placeholder="Photo Url">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 form-control-label">
+                                        <label>Upload</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                        <form method="POST" id="form_upload">
+                                            {!! Form::token(); !!}
+                                            <input type="text" class="form-control" name="testing" >
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <img id="img_preview" alt="Photo" class="file_preview">
+                                                    <input type="file" class="form-control" name="upload_photo" id="upload_photo" accept="image/*">
+                                                    
+                                                </div>
+                                                <input type="button" class="btn btn-warning" value="Upload" id="btn_uploadImage">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" id="upload_bar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+                                                        75%
                                                     </div>
                                                 </div>
                                             </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 form-control-label">
-                                                <label>Upload</label>
-                                            </div>
-                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                            <img id="img_preview" alt="Photo" class="file_preview">
-                                                            <input type="file" class="form-control"  id="upload_photo" accept="image/*">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </section>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="video">
                             <section>
                                 <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
-                                                <label>Url</label>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
+                                        <label>Url</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                
+                                                <input type="text" class="form-control" placeholder="Video Url">
                                             </div>
-                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                            
-                                                        <input type="text" class="form-control" placeholder="Video Url">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>
-                                                        </div>
-                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>
+                                        </div>
+                                    </div>
                                 </div>
                             </section>
                         </div>
@@ -212,49 +223,78 @@
 <script src="{{ asset('js/pages/ui/modals.js') }}"></script>
 {{-- <script src="{{ asset('js/pages/forms/form-wizard.js')}}"></script> --}}
 <script>
-    var formData = new FormData();
-    $(document).ready(function(){
-        $('#wizard_vertical').steps({
-            headerTag: 'h2',
-            bodyTag: 'section',
-            transitionEffect: 'slideLeft',
-            stepsOrientation: 'vertical',
-            onInit: function (event, currentIndex) {
-                setButtonWavesEffect(event);
+    //var formData = new FormData();
+    function ajax_upload(){
+        var id= "111";
+        //var image = $('#upload_photo')[0].files[0];
+        var form = new FormData();
+        form.append('id', id);
+        //form.append('image', image);
+        $.ajax({
+            url: 'uploadimage',
+            data: {"id": 14},
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            onStepChanging: function (event, currentIndex, priorIndex) {
-                setButtonWavesEffect(event);
-                return validateSteps(currentIndex);
+            success:function(data) {
+                console.log(data);
             }
-            
-        })
-        function validateSteps(index){
-            var result = true;
-            if(index == 0){
-                // if($('[name=name]').val()== "" || $('[name=code]').val() == "" || $('[name=previous_price]').val() == "" || $('[name=current_price]').val() == ""){
-                    //     AlertMessage("danger", "Invalid","Please input all required fields.");
-                    //     result =false;
-                    // }
-                }
-                return result;
-            }
-            function setButtonWavesEffect(event) {
-                $(event.currentTarget).find('[role="menu"] li a').removeClass('waves-effect');
-                $(event.currentTarget).find('[role="menu"] li:not(.disabled) a').addClass('waves-effect');
-            }
-            $("#img_preview").hide();
-            
-            $(document).on("change", "#upload_photo", function () {
-                if($(this).val() != ""){
-                    $("#img_preview").show();
-                    PreviewImage(this, $("#img_preview"));
-                }else{
-                    $("#img_preview").hide();
-                }
-                
-            });
-            
+            // ,
+            // error:function(e){ 
+            //     console.log(e.responseText);
+            // }
         });
-
-    </script>
-    @endsection
+            }
+            $(document).ready(function(){
+                $("#btn_uploadImage").click(function(){
+                    ajax_upload();
+                });
+                
+                
+                
+                $('#wizard_vertical').steps({
+                    headerTag: 'h2',
+                    bodyTag: 'section',
+                    transitionEffect: 'slideLeft',
+                    stepsOrientation: 'vertical',
+                    onInit: function (event, currentIndex) {
+                        setButtonWavesEffect(event);
+                    },
+                    onStepChanging: function (event, currentIndex, priorIndex) {
+                        setButtonWavesEffect(event);
+                        return validateSteps(currentIndex);
+                    }
+                    
+                })
+                function validateSteps(index){
+                    var result = true;
+                    if(index == 0){
+                        // if($('[name=name]').val()== "" || $('[name=code]').val() == "" || $('[name=previous_price]').val() == "" || $('[name=current_price]').val() == ""){
+                            //     AlertMessage("danger", "Invalid","Please input all required fields.");
+                            //     result =false;
+                            // }
+                        }
+                        return result;
+                    }
+                    function setButtonWavesEffect(event) {
+                        $(event.currentTarget).find('[role="menu"] li a').removeClass('waves-effect');
+                        $(event.currentTarget).find('[role="menu"] li:not(.disabled) a').addClass('waves-effect');
+                    }
+                    $("#img_preview").hide();
+                    
+                    $(document).on("change", "#upload_photo", function () {
+                        if($(this).val() != ""){
+                            $("#img_preview").show();
+                            PreviewImage(this, $("#img_preview"));
+                        }else{
+                            $("#img_preview").hide();
+                        }
+                        
+                    });
+                });
+                
+                
+            </script>
+            
+            @endsection

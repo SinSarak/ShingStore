@@ -18,3 +18,8 @@ Route::resource('phone','PhoneController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/phone/uploadimage','PhoneController@uploadimage');
+Route::post('upload_i',function(){
+    var_dump(Input::all());
+});

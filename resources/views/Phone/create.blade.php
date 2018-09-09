@@ -5,10 +5,11 @@
         margin-bottom: 0px;
     }
 </style>
-<link href="{{ asset('plugins/dropzone/dropzone.css')}}" rel="stylesheet">
-<link href="{{ asset('plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" />
-{{-- <link href="{{ asset('plugins/Imageuploadify/dist/imageuploadify.min.css')}}" rel="stylesheet">
-<link href="{{ asset('plugins/light-gallery/css/lightgallery.css') }}" rel="stylesheet"> --}}
+{{-- <link href="{{ asset('plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" /> --}}
+{{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script> --}}
+
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
         <div class="header">
@@ -191,11 +192,10 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="datepicker form-control" placeholder="Please choose a date...">
-                                                <input type="text" class="timepicker form-control" placeholder="Please choose a time...">
-                                                <input type="text" class="datetimepicker form-control" placeholder="Please choose date & time...">
-                                            </div>
+                                            
+                                            <input type="text" id="date" class="form-control floating-label" placeholder="Date">
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -320,17 +320,12 @@
 <script src="{{ asset('plugins/jquery-steps/jquery.steps.js')}}"></script>
 <script src="{{ asset('plugins/autosize/autosize.js')}}"></script>
 <script src="{{ asset('js/pages/ui/modals.js') }}"></script>
-<script src="{{ asset('plugins/momentjs/moment.js')}}"></script>
+<script src="{{ asset('plugins/bootstrap-material-datetimepicker/js/moment-with-locales.min.js')}}"></script>
 <script src="{{ asset('plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
-
-{{-- <script src="{{ asset('plugins/Imageuploadify/dist/imageuploadify.min.js')}}"></script> --}}
-{{-- <script src="{{ asset('plugins/light-gallery/js/lightgallery-all.js')}}"></script>
-<script src="{{ asset('js/pages/medias/image-gallery.js')}}"></script> --}}
-{{-- <script src="{{ asset('plugins/dropzone/dropzone.js')}}"></script> --}}
-{{-- <script src="{{ asset('js/pages/forms/form-wizard.js')}}"></script> --}}
 <script>
     //var formData = new FormData();
     function ajax_upload(){
+        $("#upload_bar").show();
         var image = $('#upload_photo')[0].files[0];
         var form = new FormData();
         form.append('image', image);
@@ -368,25 +363,16 @@
             bar.html(percentage + " %").attr('aria-valuenow',percentage).width( percentage+'%');
         }  
     }
+    
+    
     $(document).ready(function(){
-        $('.datetimepicker').bootstrapMaterialDatePicker({
-        format: 'dddd DD MMMM YYYY - HH:mm',
-        clearButton: true,
-        weekStart: 1
-    });
-
-    $('.datepicker').bootstrapMaterialDatePicker({
-        format: 'dddd DD MMMM YYYY',
-        clearButton: true,
-        weekStart: 1,
-        time: false
-    });
-
-    $('.timepicker').bootstrapMaterialDatePicker({
-        format: 'HH:mm',
-        clearButton: true,
-        date: false
-    });
+        
+        $('#date').bootstrapMaterialDatePicker
+			({
+				time: false,
+				clearButton: true
+			});
+        
         $('#btn_OK').click(function(){
             var url_image = $('#img_url');
             var upload_image = $('#upload_image_cache');
@@ -423,6 +409,15 @@
             $('#input_video_url').val('');
             $('#iframe_video').prop('src',"").hide();
             $('#input_name_import').val('');
+            $("#upload_bar").html("0 %").attr('aria-valuenow',"0").width('0%').hide();
+            //tab reset
+            $('.nav-tabs li').removeClass('active');
+            $('.nav-tabs li:first-child').addClass('active');
+            $('.nav-tabs li a').prop('aria-expanded','false');
+            $('.nav-tabs li:first-child a').prop('aria-expanded','true');
+            $('.tab-content .tab-pane').removeClass('active in');
+            $('.tab-content .tab-pane:first-child').addClass('active in');
+            ClearAlertMessage('800');
         }
         
         

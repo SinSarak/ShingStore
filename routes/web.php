@@ -23,3 +23,6 @@ Route::post('/phone/uploadimage','PhoneController@uploadimage')->name('phone.upl
 Route::get('/test',function(){
     return view ('phone.test');
 });
+Route::get('/test1',function(){
+    return view ('phone.test1');
+});

@@ -27,23 +27,25 @@
     <!-- Animation Css -->
     <link href="{{ asset('plugins/animate-css/animate.css')}}" rel="stylesheet" />
     
-    <!-- Custom Css -->
-    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/MyStyle.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/general-style.css')}}" rel="stylesheet">
     <link href="{{ asset('plugins/waitme/waitMe.css')}}" rel="stylesheet" />
     <link href="{{ asset('plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="{{ asset('css/themes/all-themes.css')}}" rel="stylesheet" />
     
     <!-- Jquery Core Js -->
     <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
     
-    <!-- Bootstrap Core Js -->
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <!-- Custom Css -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/MyStyle.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/general-style.css')}}" rel="stylesheet">
+    
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="{{ asset('css/themes/all-themes.css')}}" rel="stylesheet" />
     
     <!-- Customize JS -->
     <script src="{{ asset('js/MyJquery.js')}}"></script>
+    
+    <!-- Bootstrap Core Js -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     
 </head>
 <body class="theme-red">
@@ -60,13 +62,14 @@
             </div>
         </section>
         
-        
-        
         <!-- Select Plugin Js -->
         <script src="{{ asset('plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
         
         <!-- Slimscroll Plugin Js -->
         <script src="{{ asset('plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+        
+        <!-- Autosize Plugin Js -->
+        <script src="../../plugins/autosize/autosize.js"></script>
         
         <!-- Waves Effect Plugin Js -->
         <script src="{{ asset('plugins/node-waves/waves.js')}}"></script>

@@ -41,10 +41,7 @@ class PhoneController extends Controller
     */
     public function store()
     {
-        header('Content-Type: application/json');
-        $data = new stdClass();
-        $data->success = true;
-        echo json_encode($data);
+
     }
     
     /**
@@ -92,22 +89,44 @@ class PhoneController extends Controller
         //
     }
     
+    public function test(){
+        echo "asdf"; exit();
+        $data = array(
+            'menu' => 'create_phone'
+        );
+        return view('phone.create')->with($data);
+    }
+
     public function uploadimage(Request $request){
-    //     var_dump($request); exit();
-    //     //$this->_outputJSON("Haha");
-    //     $msg = "This is a simple message.";
-    //   return response()->json(array('msg'=> $msg), 200);
-    header('Content-Type: application/json');
-$data = new stdClass();
-$data->success = Upload::add($imgData);
-echo json_encode($data);
+        $this->validate($request,[
+            "image" => 'image|max:100000'
+            ]);
+            //Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //Get just Extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $request->file('image')->storeAs('public/PhoneImages',$fileNameToStore);
+            
+            $path = env("APP_URL", "localhost")."/storage/PhoneImages/".$fileNameToStore;
+            
+            header('Content-Type: application/json');
+            $data = array(
+                'path' => $path
+            );
+            echo json_encode($data);
+        }
+        
+        function _outputJSON($msg, $status = 'error'){
+            header('Content-Type: application/json');
+            die(json_encode(array(
+                'data' => $msg,
+                'status' => $status
+            )));
+        }
     }
     
-    function _outputJSON($msg, $status = 'error'){
-        header('Content-Type: application/json');
-        die(json_encode(array(
-            'data' => $msg,
-            'status' => $status
-        )));
-    }
-}

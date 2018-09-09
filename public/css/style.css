@@ -1,5 +1,6 @@
 ﻿/* Navbar ====================================== */
 @import url(materialize.css);
+th.dt-center, td.dt-center { text-align: center; }
 .navbar {
   font-family: "Roboto", sans-serif;
   -webkit-border-radius: 0;

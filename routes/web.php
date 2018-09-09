@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/phone/uploadimage','PhoneController@uploadimage');
-Route::post('upload_i',function(){
-    var_dump(Input::all());
+Route::post('/phone/uploadimage','PhoneController@uploadimage')->name('phone.uploadimage');
+Route::get('/test',function(){
+    return view ('phone.test');
 });

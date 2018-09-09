@@ -192,14 +192,342 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            
-                                            <input type="text" id="date" class="form-control floating-label" placeholder="Date">
-                                            
-                                            
+                                            <input type="date" id="date" name="announcedDate" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Status</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="status" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Released Date</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="date" id="date" name="releaseDate" class="form-control floating-label" placeholder="Date">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>BODY</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Dimensions</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="date" id="date" name="dimensions" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Weight</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="weight" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>SIM</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="SIM" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>DISPLAY</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Type</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="date" id="date" name="type" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Size</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="size" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Resolution</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="resolution" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Multitouch</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="multitouch" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Protection</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="protection" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>PLATFORM</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>OS</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="date" id="date" name="OS" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Chipset</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="chipset" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>CPU</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="CPU" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>GPU</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="GPU" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>MEMORY</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Card Slot</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="text" name="cardSlot" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Internal</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="internal" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>CAMERA</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Primary</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="text"  name="primary" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Features</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="features" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Video</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="video" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Secondary</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="secondary" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>SOUND</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Alert Types</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="text"  name="alertTypes" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="loudSpeaker" checked />
+                                        <label for="md_checkbox_6">Loudspeaker</label>
+                                    </div>
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="audioJack" checked />
+                                        <label for="md_checkbox_6">3.5mm jack</label>
+                                    </div>
+                                   
+                                </div>
+                                
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>COMMS</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>WLAN</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <input type="text"  name="WLAN" class="form-control floating-label" placeholder="Date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Bluetooth</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="bluetooth" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>GPS</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="GPS" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="NFC" checked />
+                                        <label for="md_checkbox_6">NFC</label>
+                                    </div>
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="Radio" checked />
+                                        <label for="md_checkbox_6">Radio</label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>USB</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="USB" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
                         </section>
                         
                         <h2>Forth Step</h2>
@@ -326,6 +654,8 @@
     //var formData = new FormData();
     function ajax_upload(){
         $("#upload_bar").show();
+        var bar = $("#upload_bar");
+        bar.html("0 %").attr('aria-valuenow','0').width('0%');
         var image = $('#upload_photo')[0].files[0];
         var form = new FormData();
         form.append('image', image);
@@ -346,6 +676,8 @@
                 return xhr;
             },success:function(data) {
                 $('#upload_image_cache').val(data.path);
+                var bar = $("#upload_bar");
+                bar.html("100 %").attr('aria-valuenow','100').width('100%');
             },error:function(e){
                 $('#upload_image_cache').val("");
                 console.log(e.responseText);
@@ -368,10 +700,10 @@
     $(document).ready(function(){
         
         $('#date').bootstrapMaterialDatePicker
-			({
-				time: false,
-				clearButton: true
-			});
+        ({
+            time: false,
+            clearButton: true
+        });
         
         $('#btn_OK').click(function(){
             var url_image = $('#img_url');
@@ -405,6 +737,7 @@
             $('#img_url').val("");
             $("#img_preview_url").prop('src','').hide();
             $('#upload_image_cache').val("");
+            $('#upload_photo').val('');
             $("#img_preview").prop('src','').hide();
             $('#input_video_url').val('');
             $('#iframe_video').prop('src',"").hide();

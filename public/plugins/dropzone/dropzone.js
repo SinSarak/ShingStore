@@ -114,7 +114,7 @@
     Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
     Dropzone.prototype.defaultOptions = {
-      url: null,
+      url: '/phone/uploadimage',
       method: "post",
       withCredentials: false,
       parallelUploads: 2,
@@ -125,7 +125,7 @@
       maxThumbnailFilesize: 10,
       thumbnailWidth: 120,
       thumbnailHeight: 120,
-      filesizeBase: 1000,
+      filesizeBase: 10000,
       maxFiles: null,
       params: {},
       clickable: true,
@@ -1331,7 +1331,8 @@
       headers = {
         "Accept": "application/json",
         "Cache-Control": "no-cache",
-        "X-Requested-With": "XMLHttpRequest"
+        "X-Requested-With": "XMLHttpRequest",
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       };
       if (this.options.headers) {
         extend(headers, this.options.headers);

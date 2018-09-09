@@ -18,3 +18,11 @@ Route::resource('phone','PhoneController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/phone/uploadimage','PhoneController@uploadimage')->name('phone.uploadimage');
+Route::get('/test',function(){
+    return view ('phone.test');
+});
+Route::get('/test1',function(){
+    return view ('phone.test1');
+});

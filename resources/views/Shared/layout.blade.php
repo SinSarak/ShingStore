@@ -33,6 +33,8 @@
     <!-- Jquery Core Js -->
     <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
     
+    <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
     <!-- Custom Css -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('css/MyStyle.css')}}" rel="stylesheet">

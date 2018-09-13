@@ -7,6 +7,10 @@
     .btn-move{
         margin-top:5px;
     }
+    .selected{
+        background-color: orange;
+    }
+    
 </style>
 {{-- <link href="{{ asset('plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" /> --}}
 {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />--}}
@@ -122,28 +126,18 @@
                                         <div class="list-group" id="list-photovideos">
                                             {{-- <a href="javascript:void(0);" class="list-group-item">Cras justo odio</a> --}}
                                         </div>
-                                        <ul id="sortable">
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-                                              </ul>
-                                               
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
                                     <div class="form-group text-center">
-                                        <button type="button" class="btn bg-green waves-effect">
-                                                <i class="fa fa-chevron-up fa-xs"></i>
+                                        <button type="button" class="btn bg-green waves-effect" id="btn-up">
+                                            <i class="fa fa-chevron-up fa-xs"></i>
                                         </button>
-                                        <button type="button" class="btn bg-orange waves-effect btn-move">
-                                                <i class="fa fa-trash fa-xs"></i>
+                                        <button type="button" class="btn bg-orange waves-effect btn-move" id="btn-delete">
+                                            <i class="fa fa-trash fa-xs"></i>
                                         </button>
-                                        <button type="button" class="btn bg-green waves-effect btn-move">
-                                                <i class="fa fa-chevron-down fa-xs"></i>
+                                        <button type="button" class="btn bg-green waves-effect btn-move" id="btn-down">
+                                            <i class="fa fa-chevron-down fa-xs"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -846,11 +840,8 @@
     
     
     $(document).ready(function(){
-        $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
-
-
-        
+        $( "#datepicker" ).datepicker();
+        //Import Photo Video
         $('#btn_OK').click(function(){
             var url_image = $('#img_url');
             var upload_image = $('#upload_image_cache');
@@ -865,11 +856,11 @@
                 
                 //insert link
                 if(url_image.val() != ""){
-                    list.append("<a href='javascript:void(0);' data-type='img' data-src='"+url_image.val()+"' class='list-group-item text_limit'>"+name.val()+"</a>");
+                    list.append("<a href='javascript:void(0);' data-selected='false' data-type='img' data-src='"+url_image.val()+"' class='list-group-item text_limit'>"+name.val()+"</a>");
                 }else if(upload_image.val() != ""){
-                    list.append("<a href='javascript:void(0);' data-type='img' data-src='"+upload_image.val()+"' class='list-group-item text_limit'>"+name.val()+"</a>");
+                    list.append("<a href='javascript:void(0);' data-selected='false' data-type='img' data-src='"+upload_image.val()+"' class='list-group-item text_limit'>"+name.val()+"</a>");
                 }else if(url_video.prop('src') != ""){
-                    list.append("<a href='javascript:void(0);' data-type='video' data-src='"+url_video.prop('src')+"' class='list-group-item text_limit'>"+name.val()+"</a>");
+                    list.append("<a href='javascript:void(0);' data-selected='false' data-type='video' data-src='"+url_video.prop('src')+"' class='list-group-item text_limit'>"+name.val()+"</a>");
                 }
                 clearPhotoVideoUpload();
                 $("#largeModal").modal("hide");
@@ -878,7 +869,6 @@
         $("#largeModal").on('hide.bs.modal', function () {
             clearPhotoVideoUpload();
         });
-        
         function clearPhotoVideoUpload(){
             $('#img_url').val("");
             $("#img_preview_url").prop('src','').hide();
@@ -899,6 +889,46 @@
             ClearAlertMessage('800');
         }
         
+        $(document).on("click", "#btn-up", function () {
+            var link = $('#list-photovideos a');
+            $(link).each(function(){
+                if($(this).data('selected')=='true'){
+                    var previous  = $(this).prev('a');
+                    if(previous.length !== 0){
+                        $(this).insertBefore(previous);
+                    }
+                }
+            });
+        });
+        $(document).on("click", "#btn-down", function () {
+            var link = $('#list-photovideos a');
+            $(link).each(function(){
+                if($(this).data('selected')=='true'){
+                    var previous  = $(this).next('a');
+                    if(previous.length !== 0){
+                        $(this).insertAfter(previous);
+                    }
+                }
+            });
+        });
+        
+        $(document).on("click", "#list-photovideos a", function () {
+            var me = $(this);
+            if(me.data('selected')=='true'){
+                me.data('selected','false').removeClass('selected');
+            }else{
+                $('#list-photovideos a').data('selected','false').removeClass('selected');
+                me.data('selected','true').addClass('selected');
+            }
+        });
+        $(document).on("click", "#btn-delete", function () {
+            var link = $('#list-photovideos a');
+            $(link).each(function(){
+                if($(this).data('selected')=='true'){
+                    $(this).remove();
+                }
+            });
+        });
         
         $("#btn_uploadImage").click(function(){
             ajax_upload();
@@ -930,11 +960,12 @@
             var imports = [];
             
             $(list).each(function (index) {
-                var obj = {'name':$(this).text(),'type':$(this).data('type'),'src':$(this).data('src')};
+                var obj = {'name':$(this).text(),'type':$(this).data('type'),'src':$(this).data('src'),'order':index};
                 imports.push(obj);
             });
             imp.val(JSON.stringify(imports));
         });
+        //Valid Steps
         function validateSteps(index){
             var result = true;
             if(index == 0){

@@ -16,13 +16,11 @@ class CreatePhotoTable extends Migration
         Schema::create('Photos', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('phone_id');
-            $table->string('Photo_name');
-            $table->string('path');
-            $table->string('url_photo');
-            $table->string('url_video');
+            $table->string('import_name');
+            $table->string('type');
+            $table->string('src');
             $table->boolean('active');
-            $table->integer('order');
-            $table->decimal('previous_price');
+            $table->integer('order')->nullable();
             $table->integer('CreatedBy');
             $table->timestamps();
             $table->foreign('phone_id')->references('id')->on('Phones')->onDelete('cascade');

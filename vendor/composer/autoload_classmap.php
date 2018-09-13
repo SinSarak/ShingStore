@@ -6,13 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColumnBrandPhone' => $baseDir . '/database/migrations/2018_09_11_143606_add_column_brand_phone.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'CreateDepartmentsTable' => $baseDir . '/database/migrations/2018_07_29_103158_create_departments_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePhoneTable' => $baseDir . '/database/migrations/2018_08_20_044613_create_phone_table.php',
     'CreatePhotoTable' => $baseDir . '/database/migrations/2018_08_20_045213_create_photo_table.php',
-    'CreateSample' => $baseDir . '/database/migrations/2018_08_21_131133_create_sample.php',
     'CreateSpecification' => $baseDir . '/database/migrations/2018_08_21_125750_create_specification.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

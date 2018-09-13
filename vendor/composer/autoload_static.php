@@ -288,13 +288,13 @@ class ComposerStaticInit08ac0bed79a1922d0349e18d37acd491
     );
 
     public static $classMap = array (
+        'AddColumnBrandPhone' => __DIR__ . '/../..' . '/database/migrations/2018_09_11_143606_add_column_brand_phone.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CreateDepartmentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_29_103158_create_departments_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePhoneTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_20_044613_create_phone_table.php',
         'CreatePhotoTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_20_045213_create_photo_table.php',
-        'CreateSample' => __DIR__ . '/../..' . '/database/migrations/2018_08_21_131133_create_sample.php',
         'CreateSpecification' => __DIR__ . '/../..' . '/database/migrations/2018_08_21_125750_create_specification.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

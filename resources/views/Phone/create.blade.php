@@ -4,11 +4,13 @@
     .input-group{
         margin-bottom: 0px;
     }
+    .btn-move{
+        margin-top:5px;
+    }
 </style>
 {{-- <link href="{{ asset('plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" /> --}}
-{{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script> --}}
+{{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />--}}
+<link rel="stylesheet" href="{{ asset('plugins/jquery-ui-1.12.1/jquery-ui.min.css')}}" rel="stylesheet" />
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="card">
@@ -30,7 +32,7 @@
             </ul>
         </div>
         <div class="body">
-            <form class="form-horizontal" action="/brand" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="/phone" id="frm_phone" method="POST" enctype="multipart/form-data">
                 {!! Form::token(); !!}
                 <div class="body">
                     <div id="wizard_vertical">
@@ -56,6 +58,22 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="code" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label>Brand</label>
+                                    <span class="required">*</span>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select  name="brand" class="form-control">
+                                                @foreach ($brands as $brand)
+                                                <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                                                @endforeach
+                                            </select>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -91,25 +109,49 @@
                         <section>
                             <div class="row clearfix">
                                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 form-control-label text-left no-margin-bottom" >
-                                    <label>Phone / Video :</label>
+                                    <label>List imports :</label>
                                     <div class="icon-button-demo js-modal-buttons button-add">
                                         <button type="button" data-toggle="modal" data-target="#largeModal" class="btn bg-deep-orange btn-circle waves-effect waves-circle waves-float">
                                             <i class="material-icons">add</i>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                <div class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                     <div class="form-group">
+                                        <input type="hidden" name="imports" />
                                         <div class="list-group" id="list-photovideos">
                                             {{-- <a href="javascript:void(0);" class="list-group-item">Cras justo odio</a> --}}
                                         </div>
+                                        <ul id="sortable">
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+                                                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+                                              </ul>
+                                               
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                    <div class="form-group text-center">
+                                        <button type="button" class="btn bg-green waves-effect">
+                                                <i class="fa fa-chevron-up fa-xs"></i>
+                                        </button>
+                                        <button type="button" class="btn bg-orange waves-effect btn-move">
+                                                <i class="fa fa-trash fa-xs"></i>
+                                        </button>
+                                        <button type="button" class="btn bg-green waves-effect btn-move">
+                                                <i class="fa fa-chevron-down fa-xs"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             
                         </section>
                         
-                        <h2>Third Step</h2>
+                        <h2>Specification</h2>
                         <section>
                             <div class="row clearfix">
                                 <div class="spec-header">
@@ -172,11 +214,11 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="GPRS" checked />
+                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="GPRS"  />
                                         <label for="md_checkbox_6">GPRS</label>
                                     </div>
                                     <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_7" class="chk-col-blue" name="EDGE" checked />
+                                        <input type="checkbox" id="md_checkbox_7" class="chk-col-blue" name="EDGE"  />
                                         <label for="md_checkbox_7">EDGE</label>
                                     </div>
                                 </div>
@@ -228,7 +270,9 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="date" id="date" name="dimensions" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="dimensions" required>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -266,7 +310,10 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="date" id="date" name="type" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="type" required>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -326,7 +373,10 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="date" id="date" name="OS" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="OS" required>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -376,7 +426,9 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="text" name="cardSlot" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text" name="cardSlot" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -404,7 +456,9 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="text"  name="primary" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text"  name="primary" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -454,18 +508,20 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="text"  name="alertTypes" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text"  name="alertTypes" class="form-control" >
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="loudSpeaker" checked />
-                                        <label for="md_checkbox_6">Loudspeaker</label>
+                                        <input type="checkbox" id="md_checkbox_8" class="chk-col-blue" name="loudSpeaker"  />
+                                        <label for="md_checkbox_8">Loudspeaker</label>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="audioJack" checked />
-                                        <label for="md_checkbox_6">3.5mm jack</label>
+                                        <input type="checkbox" id="md_checkbox_9" class="chk-col-blue" name="audioJack"  />
+                                        <label for="md_checkbox_9">3.5mm jack</label>
                                     </div>
-                                   
+                                    
                                 </div>
                                 
                             </div>
@@ -480,7 +536,9 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="text"  name="WLAN" class="form-control floating-label" placeholder="Date">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="WLAN" required>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -505,14 +563,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="NFC" checked />
-                                        <label for="md_checkbox_6">NFC</label>
-                                    </div>
-                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="Radio" checked />
-                                        <label for="md_checkbox_6">Radio</label>
-                                    </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
                                         <label>USB</label>
                                         <span class="required">*</span>
@@ -524,27 +574,124 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        <input type="checkbox" id="md_checkbox_10" class="chk-col-blue" name="NFC"  />
+                                        <label for="md_checkbox_10">NFC</label>
+                                    </div>
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        <input type="checkbox" id="md_checkbox_11" class="chk-col-blue" name="Radio"  />
+                                        <label for="md_checkbox_11">Radio</label>
+                                    </div>
                                 </div>
                                 
                             </div>
-                            
-                        </section>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>FEATURES</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Sensors</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="sensors" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Messaging</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="messaging" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Browser</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="browser" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Java</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="java" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>BATTERY</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Battery</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="batteryDetail" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>MISC</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
+                                        <label>Battery</label>
+                                        <span class="required">*</span>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="colors" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row clearfix">
+                                <div class="spec-header">
+                                    <h5>TESTS</h5>
+                                </div>
+                                <div class="spec-body">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-line">
+                                            <textarea rows="4" style="resize: vertical;" class="form-control margin_above" name="testDetail"><b>asdf</b></textarea>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
                         
-                        <h2>Forth Step</h2>
-                        <section>
-                            <p>
-                                Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula
-                                vulputate. Aliquam sed sem tortor. Quisque sed felis ut mauris feugiat iaculis nec
-                                ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae.
-                                Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo
-                                tortor.
-                            </p>
-                        </section>
-                    </div>
+                    </section>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+</div>
 </div>
 {{-- Modal --}}
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
@@ -644,6 +791,7 @@
     </div>
 </div>
 {{-- End Modal --}}
+<script src="{{ asset('plugins/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script> 
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.js')}}"></script>
 <script src="{{ asset('plugins/jquery-steps/jquery.steps.js')}}"></script>
 <script src="{{ asset('plugins/autosize/autosize.js')}}"></script>
@@ -698,12 +846,10 @@
     
     
     $(document).ready(function(){
-        
-        $('#date').bootstrapMaterialDatePicker
-        ({
-            time: false,
-            clearButton: true
-        });
+        $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+
+
         
         $('#btn_OK').click(function(){
             var url_image = $('#img_url');
@@ -768,9 +914,27 @@
             onStepChanging: function (event, currentIndex, priorIndex) {
                 setButtonWavesEffect(event);
                 return validateSteps(currentIndex);
+            },
+            onFinished: function () {
+                Submit();
             }
             
-        })
+            
+        });
+        function Submit(){
+            $('#frm_phone').submit();
+        }
+        $('#frm_phone').submit(function(){
+            var list = $('#list-photovideos a');
+            var imp = $('[name=imports]');
+            var imports = [];
+            
+            $(list).each(function (index) {
+                var obj = {'name':$(this).text(),'type':$(this).data('type'),'src':$(this).data('src')};
+                imports.push(obj);
+            });
+            imp.val(JSON.stringify(imports));
+        });
         function validateSteps(index){
             var result = true;
             if(index == 0){
@@ -809,6 +973,7 @@
                 }
             });
         });
+        
         
         
         

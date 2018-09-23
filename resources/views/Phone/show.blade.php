@@ -1,4 +1,4 @@
-@extends('Shared.layout',['title' => 'Create Phone'])
+@extends('Shared.layout',['title' => 'Phone'])
 @section('content')
 <style>
     .input-group{
@@ -20,7 +20,7 @@
     <div class="card">
         <div class="header">
             <h2>
-                Create Phone
+                 Phone
             </h2>
             <ul class="header-dropdown m-r--5">
                 <li class="dropdown">
@@ -50,7 +50,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="name" required>
+                                        <input type="text" class="form-control" name="name" value="{{$phone->name}}" required >
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="code" required>
+                                        <input type="text" class="form-control" name="code" value="{{$phone->code}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                         <div class="form-line">
                                             <select  name="brand" class="form-control">
                                                 @foreach ($brands as $brand)
-                                                <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                                                <option value="{{$brand->brand_id}}" @if($phone->brand_id == $brand->brand_id) {{'selected'}} @endif >{{$brand->brand_name}}</option>
                                                 @endforeach
                                             </select>
                                             
@@ -88,7 +88,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="input-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" name="previous_price" placeholder="0.00">
+                                        <input type="number" class="form-control" name="previous_price" value="{{$phone->previous_price}}" placeholder="0.00">
                                         </div>
                                         <span class="input-group-addon">$</span>
                                     </div>
@@ -100,7 +100,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="input-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" name="current_price" placeholder="0.00">
+                                            <input type="number" class="form-control" name="current_price" value="{{$phone->current_price}}" placeholder="0.00">
                                         </div>
                                         <span class="input-group-addon">$</span>
                                     </div>
@@ -124,6 +124,9 @@
                                     <div class="form-group">
                                         <input type="hidden" name="imports" />
                                         <div class="list-group" id="list-photovideos">
+                                            @foreach($phone->photos as $photo)
+                                                <a href='javascript:void(0);' data-selected='false' data-type='{{$photo->type}}' data-src='{{$photo->src}}' class='list-group-item text_limit'>{{$photo->import_name}}</a>
+                                            @endforeach
                                             {{-- <a href="javascript:void(0);" class="list-group-item">Cras justo odio</a> --}}
                                         </div>
                                     </div>

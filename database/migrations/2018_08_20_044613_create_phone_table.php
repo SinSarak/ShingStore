@@ -18,11 +18,11 @@ class CreatePhoneTable extends Migration
             $table->increments('id');
             $table->string('code');
             $table->string('name');
-            $table->unsignedInteger('brand');
+            $table->unsignedInteger('brand_id');
             $table->decimal('current_price');
             $table->decimal('previous_price');
             $table->integer('CreatedBy');
-            $table->foreign('brand')->references('brand_id')->on('phone_brands')->onDelete('cascade');
+            $table->foreign('brand_id')->references('brand_id')->on('phone_brands')->onDelete('cascade');
             $table->timestamps();
         });
     }

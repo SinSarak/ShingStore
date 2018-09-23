@@ -1,3 +1,4 @@
+@extends('Shared.layout',['title' => 'Brand'])
 @extends('Shared.layout')
 
 @section('content')

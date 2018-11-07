@@ -12,15 +12,19 @@
 */
 
 Route::get('/','HomeController@Index');
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+
+Route::post('/phone/uploadimage','PhoneController@uploadimage')->name('phone.uploadimage');
+Route::get('phone/pdf','PhoneController@pdf');
+
 
 Route::resource('brand','PhoneBrandsController');
 Route::resource('phone','PhoneController');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/phone/uploadimage','PhoneController@uploadimage')->name('phone.uploadimage');
-Route::get('/test',function(){
+Route::get('/phone/test',function(){
     return view ('phone.test');
 });
 Route::get('/test1',function(){

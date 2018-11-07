@@ -20,13 +20,22 @@ use Symfony\Component\CssSelector\Parser\Token;
  * which is copyright Ian Bicking, @see https://github.com/SimonSapin/cssselect.
  *
  * @author Jean-François Simon <jeanfrancois.simon@sensiolabs.com>
- *
- * @internal
  */
 class FunctionNode extends AbstractNode
 {
+    /**
+     * @var NodeInterface
+     */
     private $selector;
+
+    /**
+     * @var string
+     */
     private $name;
+
+    /**
+     * @var Token[]
+     */
     private $arguments;
 
     /**
@@ -34,19 +43,25 @@ class FunctionNode extends AbstractNode
      * @param string        $name
      * @param Token[]       $arguments
      */
-    public function __construct(NodeInterface $selector, string $name, array $arguments = array())
+    public function __construct(NodeInterface $selector, $name, array $arguments = array())
     {
         $this->selector = $selector;
         $this->name = strtolower($name);
         $this->arguments = $arguments;
     }
 
-    public function getSelector(): NodeInterface
+    /**
+     * @return NodeInterface
+     */
+    public function getSelector()
     {
         return $this->selector;
     }
 
-    public function getName(): string
+    /**
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
     }
@@ -62,7 +77,7 @@ class FunctionNode extends AbstractNode
     /**
      * {@inheritdoc}
      */
-    public function getSpecificity(): Specificity
+    public function getSpecificity()
     {
         return $this->selector->getSpecificity()->plus(new Specificity(0, 1, 0));
     }
@@ -70,7 +85,7 @@ class FunctionNode extends AbstractNode
     /**
      * {@inheritdoc}
      */
-    public function __toString(): string
+    public function __toString()
     {
         $arguments = implode(', ', array_map(function (Token $token) {
             return "'".$token->getValue()."'";

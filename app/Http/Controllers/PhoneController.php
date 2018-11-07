@@ -10,6 +10,8 @@ use App\PhoneBrand;
 use App\Phone;
 use App\Photo;
 use App\Specifications;
+use App;
+use PDF;
 
 class PhoneController extends Controller
 {
@@ -25,7 +27,7 @@ class PhoneController extends Controller
     public function index()
     {
         $phones = Phone::all();
-        //var_dump($phones[0]->brandss->brand_name); exit();
+        //var_dump($phones->spec); exit();
         $data = array(
             'menu' => 'list_phone',
             'phones' => $phones
@@ -107,7 +109,7 @@ class PhoneController extends Controller
             
             Photo::insert($photos);
             
-            $spec = new  Specifications();
+            $spec = new Specifications();
             $spec->phone_id = $phoneId;
             $spec->technology = $request->input('technology');
             $spec->twoG = $request->input('twoG');
@@ -174,12 +176,29 @@ class PhoneController extends Controller
     {
         $brands = PhoneBrand::all();
         $phone = Phone::find($id);
-        //var_dump($phone->photos[0]->src); exit();
+
+        //avoid null relation
+        if($phone->spec == null){
+            $phone->spec = new Specifications();
+        }
+        //var_dump($phone->spec); exit();
         $data = array(
             'brands' => $brands,
             'phone' => $phone
         );
         return view('Phone.show')->with($data);
+    }
+    
+    public function pdf(){
+        $phones = Phone::all();
+        //var_dump($phones->spec); exit();
+        $data = array(
+            'menu' => 'list_phone',
+            'phones' => $phones
+        );
+        ini_set('max_execution_time', 120);
+        $pdf = PDF::loadView('Phone.list',$data);
+        return $pdf->download('invoice.pdf');
     }
     
     /**
@@ -190,7 +209,19 @@ class PhoneController extends Controller
     */
     public function edit($id)
     {
-        //
+        $brands = PhoneBrand::all();
+        $phone = Phone::find($id);
+
+        //avoid null relation
+        if($phone->spec == null){
+            $phone->spec = new Specifications();
+        }
+        //var_dump($phone->spec); exit();
+        $data = array(
+            'brands' => $brands,
+            'phone' => $phone
+        );
+        return view('Phone.edit')->with($data);
     }
     
     /**

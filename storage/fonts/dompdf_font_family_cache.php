@@ -1,0 +1,92 @@
+<?php return array (
+  'sans-serif' => array(
+    'normal' => $rootDir . '\lib\fonts\Helvetica',
+    'bold' => $rootDir . '\lib\fonts\Helvetica-Bold',
+    'italic' => $rootDir . '\lib\fonts\Helvetica-Oblique',
+    'bold_italic' => $rootDir . '\lib\fonts\Helvetica-BoldOblique',
+  ),
+  'times' => array(
+    'normal' => $rootDir . '\lib\fonts\Times-Roman',
+    'bold' => $rootDir . '\lib\fonts\Times-Bold',
+    'italic' => $rootDir . '\lib\fonts\Times-Italic',
+    'bold_italic' => $rootDir . '\lib\fonts\Times-BoldItalic',
+  ),
+  'times-roman' => array(
+    'normal' => $rootDir . '\lib\fonts\Times-Roman',
+    'bold' => $rootDir . '\lib\fonts\Times-Bold',
+    'italic' => $rootDir . '\lib\fonts\Times-Italic',
+    'bold_italic' => $rootDir . '\lib\fonts\Times-BoldItalic',
+  ),
+  'courier' => array(
+    'normal' => $rootDir . '\lib\fonts\Courier',
+    'bold' => $rootDir . '\lib\fonts\Courier-Bold',
+    'italic' => $rootDir . '\lib\fonts\Courier-Oblique',
+    'bold_italic' => $rootDir . '\lib\fonts\Courier-BoldOblique',
+  ),
+  'helvetica' => array(
+    'normal' => $rootDir . '\lib\fonts\Helvetica',
+    'bold' => $rootDir . '\lib\fonts\Helvetica-Bold',
+    'italic' => $rootDir . '\lib\fonts\Helvetica-Oblique',
+    'bold_italic' => $rootDir . '\lib\fonts\Helvetica-BoldOblique',
+  ),
+  'zapfdingbats' => array(
+    'normal' => $rootDir . '\lib\fonts\ZapfDingbats',
+    'bold' => $rootDir . '\lib\fonts\ZapfDingbats',
+    'italic' => $rootDir . '\lib\fonts\ZapfDingbats',
+    'bold_italic' => $rootDir . '\lib\fonts\ZapfDingbats',
+  ),
+  'symbol' => array(
+    'normal' => $rootDir . '\lib\fonts\Symbol',
+    'bold' => $rootDir . '\lib\fonts\Symbol',
+    'italic' => $rootDir . '\lib\fonts\Symbol',
+    'bold_italic' => $rootDir . '\lib\fonts\Symbol',
+  ),
+  'serif' => array(
+    'normal' => $rootDir . '\lib\fonts\Times-Roman',
+    'bold' => $rootDir . '\lib\fonts\Times-Bold',
+    'italic' => $rootDir . '\lib\fonts\Times-Italic',
+    'bold_italic' => $rootDir . '\lib\fonts\Times-BoldItalic',
+  ),
+  'monospace' => array(
+    'normal' => $rootDir . '\lib\fonts\Courier',
+    'bold' => $rootDir . '\lib\fonts\Courier-Bold',
+    'italic' => $rootDir . '\lib\fonts\Courier-Oblique',
+    'bold_italic' => $rootDir . '\lib\fonts\Courier-BoldOblique',
+  ),
+  'fixed' => array(
+    'normal' => $rootDir . '\lib\fonts\Courier',
+    'bold' => $rootDir . '\lib\fonts\Courier-Bold',
+    'italic' => $rootDir . '\lib\fonts\Courier-Oblique',
+    'bold_italic' => $rootDir . '\lib\fonts\Courier-BoldOblique',
+  ),
+  'dejavu sans' => array(
+    'bold' => $rootDir . '\lib\fonts\DejaVuSans-Bold',
+    'bold_italic' => $rootDir . '\lib\fonts\DejaVuSans-BoldOblique',
+    'italic' => $rootDir . '\lib\fonts\DejaVuSans-Oblique',
+    'normal' => $rootDir . '\lib\fonts\DejaVuSans',
+  ),
+  'dejavu sans mono' => array(
+    'bold' => $rootDir . '\lib\fonts\DejaVuSansMono-Bold',
+    'bold_italic' => $rootDir . '\lib\fonts\DejaVuSansMono-BoldOblique',
+    'italic' => $rootDir . '\lib\fonts\DejaVuSansMono-Oblique',
+    'normal' => $rootDir . '\lib\fonts\DejaVuSansMono',
+  ),
+  'dejavu serif' => array(
+    'bold' => $rootDir . '\lib\fonts\DejaVuSerif-Bold',
+    'bold_italic' => $rootDir . '\lib\fonts\DejaVuSerif-BoldItalic',
+    'italic' => $rootDir . '\lib\fonts\DejaVuSerif-Italic',
+    'normal' => $rootDir . '\lib\fonts\DejaVuSerif',
+  ),
+  'glyphicons halflings' => array(
+    'normal' => $fontDir . '\545295e1c7a7a3b5a0fed2e67a4236d9',
+  ),
+  'fontawesome' => array(
+    'normal' => $fontDir . '\67a17d69582f8f1a618518f2c086bea1',
+  ),
+  'roboto' => array(
+    'normal' => $fontDir . '\41ce0a4db0ccad1b72bbf9d8a10b297c',
+  ),
+  'material icons' => array(
+    'normal' => $fontDir . '\783da70f2601f84d40b050c13f601e1a',
+  ),
+) ?>

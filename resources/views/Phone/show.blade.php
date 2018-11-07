@@ -114,11 +114,6 @@
                             <div class="row clearfix">
                                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 form-control-label text-left no-margin-bottom" >
                                     <label>List imports :</label>
-                                    <div class="icon-button-demo js-modal-buttons button-add">
-                                        <button type="button" data-toggle="modal" data-target="#largeModal" class="btn bg-deep-orange btn-circle waves-effect waves-circle waves-float">
-                                            <i class="material-icons">add</i>
-                                        </button>
-                                    </div>
                                 </div>
                                 <div class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                     <div class="form-group">
@@ -129,19 +124,6 @@
                                             @endforeach
                                             {{-- <a href="javascript:void(0);" class="list-group-item">Cras justo odio</a> --}}
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                                    <div class="form-group text-center">
-                                        <button type="button" class="btn bg-green waves-effect" id="btn-up">
-                                            <i class="fa fa-chevron-up fa-xs"></i>
-                                        </button>
-                                        <button type="button" class="btn bg-orange waves-effect btn-move" id="btn-delete">
-                                            <i class="fa fa-trash fa-xs"></i>
-                                        </button>
-                                        <button type="button" class="btn bg-green waves-effect btn-move" id="btn-down">
-                                            <i class="fa fa-chevron-down fa-xs"></i>
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +144,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="technology" required>
+                                            <input type="text" class="form-control" name="technology" value="{{$phone->spec->technology}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +155,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="twoG" required>
+                                                <input type="text" class="form-control" name="twoG" value="{{$phone->spec->twoG}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +166,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="threeG" required>
+                                                <input type="text" class="form-control" name="threeG" value="{{$phone->spec->threeG}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -195,7 +177,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="fourG" required>
+                                                <input type="text" class="form-control" name="fourG" value="{{$phone->spec->fourG}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -206,16 +188,16 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="speed" required>
+                                                <input type="text" class="form-control" name="speed" value="{{$phone->spec->speed}}" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="GPRS" value="1" />
+                                        <input type="checkbox" id="md_checkbox_6" class="chk-col-blue" name="GPRS" value="1" @if($phone->spec->GPRS == 1) {{'checked'}} @endif />
                                         <label for="md_checkbox_6">GPRS</label>
                                     </div>
                                     <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_7" class="chk-col-blue" name="EDGE" value="1"  />
+                                        <input type="checkbox" id="md_checkbox_7" class="chk-col-blue" name="EDGE" value="1" @if($phone->spec->EDGE == 1) {{'checked'}} @endif  />
                                         <label for="md_checkbox_7">EDGE</label>
                                     </div>
                                 </div>
@@ -231,7 +213,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="date" id="date" name="announcedDate" class="form-control floating-label" placeholder="Date">
+                                            <input type="date" id="date" name="announcedDate" value="{{$phone->spec->announcedDate}}" class="form-control floating-label" placeholder="Date">
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5 form-control-label">
@@ -241,7 +223,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="status" required>
+                                                <input type="text" class="form-control" name="status" value="{{$phone->spec->status}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -251,7 +233,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
-                                            <input type="date" id="date" name="releaseDate" class="form-control floating-label" placeholder="Date">
+                                            <input type="date" id="date" name="releaseDate" value="{{$phone->spec->releaseDate}}" class="form-control floating-label" placeholder="Date">
                                         </div>
                                     </div>
                                 </div>
@@ -268,7 +250,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="dimensions" required>
+                                                <input type="text" class="form-control" name="dimensions" value="{{$phone->spec->dimensions}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -279,7 +261,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="weight" required>
+                                                <input type="text" class="form-control" name="weight" value="{{$phone->spec->weight}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -290,7 +272,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="SIM" required>
+                                                <input type="text" class="form-control" name="SIM" value="{{$phone->spec->SIM}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -308,7 +290,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="type" required>
+                                                <input type="text" class="form-control" name="type" value="{{$phone->spec->type}}" required>
                                             </div>
                                             
                                         </div>
@@ -320,7 +302,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="size" required>
+                                                <input type="text" class="form-control" name="size" value="{{$phone->spec->size}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +313,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="resolution" required>
+                                                <input type="text" class="form-control" name="resolution" value="{{$phone->spec->resolution}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -342,7 +324,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="multitouch" required>
+                                                <input type="text" class="form-control" name="multitouch" value="{{$phone->spec->multitouch}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -353,7 +335,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="protection" required>
+                                                <input type="text" class="form-control" name="protection" value="{{$phone->spec->protection}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -371,7 +353,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="OS" required>
+                                                <input type="text" class="form-control" name="OS" value="{{$phone->spec->OS}}" required>
                                             </div>
                                             
                                         </div>
@@ -383,7 +365,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="chipset" required>
+                                                <input type="text" class="form-control" name="chipset" value="{{$phone->spec->chipset}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -394,7 +376,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="CPU" required>
+                                                <input type="text" class="form-control" name="CPU" value="{{$phone->spec->CPU}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -405,7 +387,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="GPU" required>
+                                                <input type="text" class="form-control" name="GPU" value="{{$phone->spec->GPU}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -424,7 +406,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="cardSlot" class="form-control">
+                                                <input type="text" name="cardSlot" value="{{$phone->spec->cardSlot}}" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -435,7 +417,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="internal" required>
+                                                <input type="text" class="form-control" name="internal" value="{{$phone->spec->internal}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -454,7 +436,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text"  name="primary" class="form-control">
+                                                <input type="text"  name="primary" value="{{$phone->spec->primary}}" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -465,7 +447,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="features" required>
+                                                <input type="text" class="form-control" name="features" value="{{$phone->spec->features}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -476,7 +458,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="video" required>
+                                                <input type="text" class="form-control" name="video" value="{{$phone->spec->video}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -487,7 +469,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="secondary" required>
+                                                <input type="text" class="form-control" name="secondary" value="{{$phone->spec->secondary}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -506,16 +488,16 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text"  name="alertTypes" class="form-control" >
+                                                <input type="text"  name="alertTypes" value="{{$phone->spec->alertTypes}}" class="form-control" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_8" class="chk-col-blue" name="loudSpeaker" value="1"  />
+                                        <input type="checkbox" id="md_checkbox_8" class="chk-col-blue" name="loudSpeaker" value="1" @if($phone->spec->loudSpeaker == 1) {{'checked'}} @endif />
                                         <label for="md_checkbox_8">Loudspeaker</label>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_9" class="chk-col-blue" name="audioJack" value="1" />
+                                        <input type="checkbox" id="md_checkbox_9" class="chk-col-blue" name="audioJack" value="1" @if($phone->spec->audioJack == 1) {{'checked'}} @endif />
                                         <label for="md_checkbox_9">3.5mm jack</label>
                                     </div>
                                     
@@ -534,7 +516,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="WLAN" required>
+                                                <input type="text" class="form-control" name="WLAN" value="{{$phone->spec->WLAN}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -545,7 +527,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="bluetooth" required>
+                                                <input type="text" class="form-control" name="bluetooth" value="{{$phone->spec->bluetooth}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -556,7 +538,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="GPS" required>
+                                                <input type="text" class="form-control" name="GPS" value="{{$phone->spec->GPS}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -567,16 +549,16 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="USB" required>
+                                                <input type="text" class="form-control" name="USB" value="{{$phone->spec->USB}}" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_10" class="chk-col-blue" name="NFC" value="1" />
+                                        <input type="checkbox" id="md_checkbox_10" class="chk-col-blue" name="NFC" value="1" @if($phone->spec->NFC == 1) {{'checked'}} @endif />
                                         <label for="md_checkbox_10">NFC</label>
                                     </div>
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-5 col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                        <input type="checkbox" id="md_checkbox_11" class="chk-col-blue" name="Radio" value="1" />
+                                        <input type="checkbox" id="md_checkbox_11" class="chk-col-blue" name="Radio" value="1" @if($phone->spec->Radio == 1) {{'checked'}} @endif />
                                         <label for="md_checkbox_11">Radio</label>
                                     </div>
                                 </div>
@@ -594,7 +576,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="sensors" required>
+                                                <input type="text" class="form-control" name="sensors" value="{{$phone->spec->sensors}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -605,7 +587,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="messaging" required>
+                                                <input type="text" class="form-control" name="messaging" value="{{$phone->spec->messaging}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -616,7 +598,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="browser" required>
+                                                <input type="text" class="form-control" name="browser" value="{{$phone->spec->browser}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -627,7 +609,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="java" required>
+                                                <input type="text" class="form-control" name="java" value="{{$phone->spec->java}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -645,7 +627,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="batteryDetail" required>
+                                                <input type="text" class="form-control" name="batteryDetail" value="{{$phone->spec->batteryDetail}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -663,7 +645,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="colors" required>
+                                                <input type="text" class="form-control" name="colors" value="{{$phone->spec->colors}}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -676,7 +658,7 @@
                                 <div class="spec-body">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="form-line">
-                                            <textarea rows="4" style="resize: vertical;" class="form-control margin_above" name="testDetail"><b>asdf</b></textarea>
+                                        <textarea rows="4" style="resize: vertical;" class="form-control margin_above" name="testDetail">{{$phone->spec->testDetail}}</textarea>
                                         </div>
                                     </div>
                                 </div> 
@@ -690,104 +672,6 @@
     </div>
 </div>
 </div>
-{{-- Modal --}}
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="row clearfix">
-                    <div class="col-xs-1">
-                        <h4 class="modal-title" id="largeModalLabel">Import</h4>
-                    </div>
-                    <div class="col-xs-11">
-                        <input type="text" id="input_name_import" class="form-control"  placeholder="Title of this Import">
-                    </div>
-                </div>
-                
-                
-            </div>
-            <div class="modal-body">
-                <div class="body">
-                    
-                    
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                        <li role="presentation" class="active"><a href="#photo" data-toggle="tab" aria-expanded="true">Photo</a></li>
-                        <li role="presentation" class=""><a href="#video" data-toggle="tab" aria-expanded="false">Video</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active in" id="photo">
-                            <section>
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
-                                        <label>Url</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <img id="img_preview_url" alt="Photo" class="file_preview" style="display:none">
-                                                <input type="text" id="img_url" class="form-control"  placeholder="Photo Url">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 form-control-label">
-                                        <label>Upload</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                        <form method="POST" id="form_upload" enctype="multipart/form-data">
-                                            {!! Form::token(); !!}
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <img id="img_preview" alt="Photo" class="file_preview" style="display:none" />
-                                                    <input type="file" class="form-control" name="upload_photo" id="upload_photo" accept="image/*">
-                                                    
-                                                </div>
-                                                <input type="button" class="btn btn-warning" value="Upload" id="btn_uploadImage">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" id="upload_bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                                        0%
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <input type="hidden" id="upload_image_cache" />
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div role="tabpanel" class="tab-pane fade" id="video">
-                            <section>
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
-                                        <label>Url</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="input_video_url" class="form-control" placeholder="Youtube URL">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" frameborder="0" allowfullscreen  id="iframe_video" src="" style="display:none"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger waves-effect" id="btn_OK">OK</button>
-                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- End Modal --}}
 <script src="{{ asset('plugins/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script> 
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.js')}}"></script>
 <script src="{{ asset('plugins/jquery-steps/jquery.steps.js')}}"></script>
@@ -796,221 +680,23 @@
 <script src="{{ asset('plugins/bootstrap-material-datetimepicker/js/moment-with-locales.min.js')}}"></script>
 <script src="{{ asset('plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
 <script>
-    //var formData = new FormData();
-    function ajax_upload(){
-        $("#upload_bar").show();
-        var bar = $("#upload_bar");
-        bar.html("0 %").attr('aria-valuenow','0').width('0%');
-        var image = $('#upload_photo')[0].files[0];
-        var form = new FormData();
-        form.append('image', image);
-        $.ajax({
-            url: '/phone/uploadimage',
-            data: form,
-            dataType: 'json',
-            type: 'POST',
-            processData: false,
-            contentType: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },xhr: function() {
-                var xhr = $.ajaxSettings.xhr();
-                if(xhr.upload){
-                    xhr.upload.addEventListener('progress',progress, false);
-                }
-                return xhr;
-            },success:function(data) {
-                $('#upload_image_cache').val(data.path);
-                var bar = $("#upload_bar");
-                bar.html("100 %").attr('aria-valuenow','100').width('100%');
-            },error:function(e){
-                $('#upload_image_cache').val("");
-                console.log(e.responseText);
-            }
-        });
-    }
-    function progress(e) {
-        if(e.lengthComputable) {
-            var max = e.total;
-            var current = e.loaded;
-            
-            var percentage = (current * 100) / max;
-            percentage = percentage > 90 ? 90 : percentage.toFixed(2);
-            var bar = $("#upload_bar");
-            bar.html(percentage + " %").attr('aria-valuenow',percentage).width( percentage+'%');
-        }  
-    }
-    
-    
+ 
     $(document).ready(function(){
-        $( "#datepicker" ).datepicker();
-        //Import Photo Video
-        $('#btn_OK').click(function(){
-            var url_image = $('#img_url');
-            var upload_image = $('#upload_image_cache');
-            var url_video = $('#iframe_video');
-            var list = $('#list-photovideos');
-            var name = $('#input_name_import');
-            
-            if(name.val() == ""){
-                AlertMessage("warning", "Invalid! ", "Title Import is empty.");
-                return false;
-            }else{
-                
-                //insert link
-                if(url_image.val() != ""){
-                    list.append("<a href='javascript:void(0);' data-selected='false' data-type='img' data-src='"+url_image.val()+"' class='list-group-item text_limit'>"+name.val()+"</a>");
-                }else if(upload_image.val() != ""){
-                    list.append("<a href='javascript:void(0);' data-selected='false' data-type='img' data-src='"+upload_image.val()+"' class='list-group-item text_limit'>"+name.val()+"</a>");
-                }else if(url_video.prop('src') != ""){
-                    list.append("<a href='javascript:void(0);' data-selected='false' data-type='video' data-src='"+url_video.prop('src')+"' class='list-group-item text_limit'>"+name.val()+"</a>");
-                }
-                clearPhotoVideoUpload();
-                $("#largeModal").modal("hide");
-            }
-        });
-        $("#largeModal").on('hide.bs.modal', function () {
-            clearPhotoVideoUpload();
-        });
-        function clearPhotoVideoUpload(){
-            $('#img_url').val("");
-            $("#img_preview_url").prop('src','').hide();
-            $('#upload_image_cache').val("");
-            $('#upload_photo').val('');
-            $("#img_preview").prop('src','').hide();
-            $('#input_video_url').val('');
-            $('#iframe_video').prop('src',"").hide();
-            $('#input_name_import').val('');
-            $("#upload_bar").html("0 %").attr('aria-valuenow',"0").width('0%').hide();
-            //tab reset
-            $('.nav-tabs li').removeClass('active');
-            $('.nav-tabs li:first-child').addClass('active');
-            $('.nav-tabs li a').prop('aria-expanded','false');
-            $('.nav-tabs li:first-child a').prop('aria-expanded','true');
-            $('.tab-content .tab-pane').removeClass('active in');
-            $('.tab-content .tab-pane:first-child').addClass('active in');
-            ClearAlertMessage('800');
-        }
-        
-        $(document).on("click", "#btn-up", function () {
-            var link = $('#list-photovideos a');
-            $(link).each(function(){
-                if($(this).data('selected')=='true'){
-                    var previous  = $(this).prev('a');
-                    if(previous.length !== 0){
-                        $(this).insertBefore(previous);
-                    }
-                }
-            });
-        });
-        $(document).on("click", "#btn-down", function () {
-            var link = $('#list-photovideos a');
-            $(link).each(function(){
-                if($(this).data('selected')=='true'){
-                    var previous  = $(this).next('a');
-                    if(previous.length !== 0){
-                        $(this).insertAfter(previous);
-                    }
-                }
-            });
-        });
-        
-        $(document).on("click", "#list-photovideos a", function () {
-            var me = $(this);
-            if(me.data('selected')=='true'){
-                me.data('selected','false').removeClass('selected');
-            }else{
-                $('#list-photovideos a').data('selected','false').removeClass('selected');
-                me.data('selected','true').addClass('selected');
-            }
-        });
-        $(document).on("click", "#btn-delete", function () {
-            var link = $('#list-photovideos a');
-            $(link).each(function(){
-                if($(this).data('selected')=='true'){
-                    $(this).remove();
-                }
-            });
-        });
-        
-        $("#btn_uploadImage").click(function(){
-            ajax_upload();
-        });
         $('#wizard_vertical').steps({
             headerTag: 'h2',
             bodyTag: 'section',
             transitionEffect: 'slideLeft',
             stepsOrientation: 'vertical',
+            enableFinishButton: false,
             onInit: function (event, currentIndex) {
                 setButtonWavesEffect(event);
             },
-            onStepChanging: function (event, currentIndex, priorIndex) {
-                setButtonWavesEffect(event);
-                return validateSteps(currentIndex);
-            },
-            onFinished: function () {
-                Submit();
-            }
-            
-            
         });
-        function Submit(){
-            $('#frm_phone').submit();
-        }
-        $('#frm_phone').submit(function(){
-            var list = $('#list-photovideos a');
-            var imp = $('[name=imports]');
-            var imports = [];
-            
-            $(list).each(function (index) {
-                var obj = {'import_name':$(this).text(),'type':$(this).data('type'),'src':$(this).data('src'),'order':index};
-                imports.push(obj);
-            });
-            imp.val(JSON.stringify(imports));
-        });
-        //Valid Steps
-        function validateSteps(index){
-            var result = true;
-            if(index == 0){
-                // if($('[name=name]').val()== "" || $('[name=code]').val() == "" || $('[name=previous_price]').val() == "" || $('[name=current_price]').val() == ""){
-                    //     AlertMessage("danger", "Invalid","Please input all required fields.");
-                    //     result =false;
-                    // }
-                }
-                return result;
-            }
-            function setButtonWavesEffect(event) {
+        function setButtonWavesEffect(event) {
                 $(event.currentTarget).find('[role="menu"] li a').removeClass('waves-effect');
                 $(event.currentTarget).find('[role="menu"] li:not(.disabled) a').addClass('waves-effect');
             }
-            
-            $(document).on("change", "#upload_photo", function () {
-                if($(this).val() != ""){
-                    $("#img_preview").show();
-                    PreviewImage(this, $("#img_preview"));
-                }else{
-                    $("#img_preview").hide();
-                }  
-            });
-            $(document).on("change", "#img_url", function () {
-                if($(this).val() != ""){
-                    $("#img_preview_url").show().prop('src',$(this).val());
-                }else{
-                    $("#img_preview_url").hide();
-                }  
-            });
-            $('#input_video_url').change(function(){
-                if($(this).val() != ""){
-                    $('#iframe_video').prop('src',getYoutubeEmbed($(this).val())).show();
-                }else{
-                    $('#iframe_video').hide();
-                }
-            });
-        });
-        
-        
-        
-        
-    </script>
+    });
+</script>
     
-    @endsection
+@endsection
